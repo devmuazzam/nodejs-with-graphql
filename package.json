@@ -1,0 +1,26 @@
+{
+  "name": "nodejs-with-graphql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devmuazzam/nodejs-with-graphql.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devmuazzam/nodejs-with-graphql/issues"
+  },
+  "homepage": "https://github.com/devmuazzam/nodejs-with-graphql#readme",
+  "dependencies": {
+    "apollo-server": "^3.13.0",
+    "express": "^4.19.2",
+    "graphql": "^16.9.0",
+    "nodemon": "^3.1.4"
+  }
+}
