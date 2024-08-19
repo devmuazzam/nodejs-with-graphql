@@ -21,38 +21,40 @@ type Query{
     getUser: User
 }`
 
+const resolvers = {
+    Query: {
+        getUser: (obj, args, context, info) => {
+            return {name: "Abdul Muazzam", age: 27, address: {city: "LHR", country: "PAK", postal_address: 1234}}
+        }
+    },
+    User: {
+        address(obj, args, context, info){
+            console.log(obj)
+            return {city: "LHR1", country: "PAK1", postal_address: 1234}
+        }, 
+        age(obj, args, context, info){
+            return 30
+        },
+        name(obj, args, context, info){
+            return "MOZM"
+        }
+    },
+    Address: {
+        city(obj, args, context, info){
+            return "LAHORE"
+        },
+        country(obj, args, context, info){
+            return "PAKISTAN"
+        },
+        postal_address(obj, args, context, info){
+            return 7777
+        },
+    }
+}
 
 const server = new ApolloServer({
-    typeDefs: typeDefs,
-    resolvers: {
-        Query: {
-            getUser: (obj, args, context, info) => {
-                return {}
-            }
-        },
-        User: {
-            address(obj, args, context, info){
-                return {city: "LHR1", country: "PAK1", postal_address: 1234}
-            }, 
-            age(obj, args, context, info){
-                return 30
-            },
-            name(obj, args, context, info){
-                return "MOZM"
-            }
-        },
-        Address: {
-            city(obj, args, context, info){
-                return "LAHORE"
-            },
-            country(obj, args, context, info){
-                return "PAKISTAN"
-            },
-            postal_address(obj, args, context, info){
-                return 7777
-            },
-        }
-    }
+    typeDefs,
+    resolvers
 })
 
 const url =  server.listen(8000)
